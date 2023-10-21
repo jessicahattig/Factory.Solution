@@ -11,7 +11,7 @@ namespace Factory.Controllers
   {
     private readonly FactoryContext _db;
 
-    public EngineersController(ToDoListContext db)
+    public EngineersController(FactoryContext db)
     {
       _db = db;
     }
@@ -47,7 +47,7 @@ namespace Factory.Controllers
       Engineer thisEngineer = _db.Engineers
           .Include(engineer => engineer.JoinEntities)
           .ThenInclude(join => join.Machine)
-          .FirstOrDefault(engineer => engineer.engineerId == id);
+          .FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
 
@@ -67,7 +67,7 @@ namespace Factory.Controllers
 
     public ActionResult Delete(int id)
     {
-      Engineer thisEngineer = _db.Engeineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
 
@@ -83,8 +83,8 @@ namespace Factory.Controllers
     public ActionResult AddMachine(int id)
     {
       Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineers => engineers.EngineerId == id);
-      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Title");
-      return View(thisItem);
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Description");
+      return View(thisEngineer);
     }
 
     [HttpPost]
