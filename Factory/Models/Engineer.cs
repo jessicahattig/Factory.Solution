@@ -6,7 +6,7 @@ namespace Factory.Models
   public class Engineer
   {
     public int EngineerId { get; set; }
-    [Required(ErrorMessage = "The item's description can't be empty!")]
+    [Required(ErrorMessage = "The engineer's name can't be empty!")]
     public string Name { get; set; }
     public List<EngineerMachine> JoinEntities { get; }
   }
