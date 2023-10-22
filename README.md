@@ -24,7 +24,7 @@ The Factory Manager is a web-based application designed to streamline and optimi
     ```json
     {
       "ConnectionStrings": {
-          "DefaultConnection": "Server=localhost;Port=3306;database=factory_many_to_many;uid=[YOUR-USERNAME];pwd=[YOUR-MYSQL-PASSWORD];"
+          "DefaultConnection": "Server=localhost;Port=3306;database=[DATABASE-NAME];uid=[YOUR-USERNAME];pwd=[YOUR-MYSQL-PASSWORD];"
       }
     }
     ```
